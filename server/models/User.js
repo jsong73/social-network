@@ -18,7 +18,7 @@ const userSchema = new Schema(
         required: true,
         unique: true,
         trim: true,
-        validate: [validateEmail, "Please fill a valid email address!"]
+        validate: [validateEmail, "Please fill a valid email address!"],
     },
     thoughts:[
         {

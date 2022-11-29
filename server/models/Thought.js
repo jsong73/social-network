@@ -7,15 +7,15 @@ const thoughtSchema = new Schema(
             type: String, 
             required: "You need to leave a thought!",
             maxlength: 280,
-            minlength: 1,
+            minlength: 1
         },
         createdAt:{
             type: Date,
-            default: Date.now,
+            default: Date.now
         },
         username:{
             type: String,
-            required: true,
+            required: true
         },
         reactions: [reactionSchema]
         },
