@@ -18,7 +18,12 @@ const userSchema = new Schema(
         required: true,
         unique: true,
         trim: true,
-        validate: [validateEmail, "Please fill a valid email address!"],
+        validate: [validateEmail, "Please fill a valid email address!"]
+    },
+    password:{
+        type: String,
+        required: true,
+        minlength: 5,
     },
     thoughts:[
         {
@@ -39,9 +44,10 @@ const userSchema = new Schema(
            virtuals: true,
         },
         id: false,
+        versionKey: false
     }
 );
 
-const User = model("User", userSchema)
+const User = model("User", userSchema);
 
 module.exports = User;
