@@ -1,11 +1,14 @@
 import './App.css';
 import React from "react"
-// import {
-//   ApolloClient,
-//   InMemoryCache,
-//   ApolloProvider,
-//   createHttpLink,
-// } from "@apollo/client"
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client"
+
+import { setContext } from '@apollo/client/link/context';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom" 
 
 import Home from "./pages/Home"
 import Login from "./pages/Login"
@@ -13,28 +16,45 @@ import Profile from "./pages/Profile"
 import Signup from "./pages/Signup"
 import SingleThought from "./pages/SingleThought"
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom" 
+const httpLink = createHttpLink({
+  uri: "/graphql"
+})
+const authLink = setContext ((_, { headers }) => {
+  const token =localStorage.getItem ("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
 
-
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+})
 
 function App() {
   return (
-    <div className="container">
- <Routes>
-    <Route path="/" element={<Home />} />
+    <ApolloProvider client={client}>
+        <Router>
+            <div className="container">
+              <Routes>
+                  <Route path="/" element={<Home />} />
 
-    <Route path="/login" element={<Login />} />
+                  <Route path="/login" element={<Login />} />
 
-    <Route path="/signup" element={<Signup />} />
+                  <Route path="/signup" element={<Signup />} />
 
-    <Route path="/me" element={<Profile />} />
+                  <Route path="/me" element={<Profile />} />
 
-    <Route path="/profile/:username" element={<Profile />} />
+                  <Route path="/profile/:username" element={<Profile />} />
 
-    <Route path="thoughts/:thoughtId" element={<SingleThought />} />
- 
- </Routes>
-    </div>
+                  <Route path="thoughts/:thoughtId" element={<SingleThought />} />
+              </Routes>
+            </div>
+        </Router>
+    </ApolloProvider>
   );
 }
 
