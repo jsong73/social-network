@@ -50,11 +50,11 @@ const resolvers = {
             const token = signToken(user);
             return {token, user};
         },
-        addThought: async (parent, { thoughtText, username }, context) => {
+        addThought: async (parent, { thoughtText }, context) => {
             if(context.user) {
                 const thought= await Thought.create({
                     thoughtText,
-                    username
+              
                 });
                 await User.findOneAndUpdate(
                     {_id: context.user._id},
