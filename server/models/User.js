@@ -1,64 +1,66 @@
-const { Schema, model }= require("mongoose");
+const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const validateEmail = function(email){
-    const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    return re.test(email)
-}
+const validateEmail = function (email) {
+  const re =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  return re.test(email);
+};
 
 const userSchema = new Schema(
-    {
+  {
     username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
+      type: String,
+      unique: true,
+      required: false,
+      trim: true,
     },
     email: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        validate: [validateEmail, "Please fill a valid email address!"]
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      validate: [validateEmail, "Please fill a valid email address!"],
     },
-    password:{
-        type: String,
-        required: true,
-        minlength: 5,
+    password: {
+      type: String,
+      required: true,
+      minlength: 5,
     },
-    thoughts:[
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Thought",
-        },
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thought",
+      },
     ],
     friends: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-        },
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
     ],
+  },
+  {
+    toJSON: {
+      // used for formatting and combining fields and de-composing a single value into multiple values before storing it in the collection.
+      virtuals: true,
     },
-    {
-        toJSON: {
-         // used for formatting and combining fields and de-composing a single value into multiple values before storing it in the collection.
-           virtuals: true,
-        },
-        id: false,
-        versionKey: false
-    });
+    id: false,
+    versionKey: false,
+  }
+);
 
-    userSchema.pre("save", async function (next) {
-        if(this.isNew || this.isModified("password")) {
-            const saltRounds = 10;
-            this.password = await bcrypt.hash(this.password, saltRounds);
-        }
-        next();
-    });
+userSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+  next();
+});
 
-    userSchema.methods.isCorrectPassword = async function (password){
-        return bcrypt.compare(password, this.password);
-    }
+userSchema.methods.isCorrectPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
 
 const User = model("User", userSchema);
 
