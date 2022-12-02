@@ -1,14 +1,15 @@
 import React from 'react';
-import { useQuery } from "@apollo/client";
+import Navbar from "../components/Navbar"
 
 
 const Home = () => {
-    return(
-        <div>
-            Home
-        </div>
 
-    )
-}
-
-export default Home;
+    return (
+      <main>
+        <Navbar />
+      </main>
+    );
+  };
+  
+  export default Home;
+  

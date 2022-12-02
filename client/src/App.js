@@ -50,7 +50,7 @@ function App() {
 
                   <Route path="/profile/:username" element={<Profile />} />
 
-                  <Route path="thoughts/:thoughtId" element={<SingleThought />} />
+                  <Route path="/thoughts/:thoughtId" element={<SingleThought />} />
               </Routes>
             </div>
         </Router>
