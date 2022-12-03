@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_THOUGHT } from "../../utils/mutations"
 import  { QUERY_THOUGHTS, QUERY_ME } from "../../utils/queries"
@@ -7,7 +7,7 @@ import Auth from "../../utils/auth";
 const ThoughtForm = () => {
     const [thoughtText, setThoughtText ] = useState("");
 
-    const [charactherCount, setCharacterCount ] = useState(0);
+    const [characterCount, setCharacterCount ] = useState(0);
 
     const [addThought, {error}] = useMutation(ADD_THOUGHT, {
         update(cache, {data: {addThought}}){
@@ -40,9 +40,9 @@ const ThoughtForm = () => {
                 },
             });
 
-            setThoughtText("");
+        setThoughtText("");
         } catch (error) {
-            console.log(error);
+        console.log(error);
         }
     };
 
@@ -58,6 +58,7 @@ const ThoughtForm = () => {
     return(
     <div>
         <h1> Hello {Auth.getProfile().data.username}, </h1>
+    
             <form onSubmit={thoughtFormHandler}>
                 <textarea
                     name="thoughtText"
@@ -67,7 +68,13 @@ const ThoughtForm = () => {
             
              <button type="submit"> Submit </button>
              </form>
+             
+           <p className={`${characterCount === 280 || error ? 'text-danger' : ''}`}>
+            Character Count: {characterCount}/280
+          </p>
+    
     </div>
+   
     )
 }
 

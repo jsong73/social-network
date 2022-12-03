@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link  } from "react-router-dom";
 import Auth from "../../utils/auth";
 
 const Navbar = () => {
     const logout = (event) => {
         event.preventDefault();
         Auth.logout();
-    
+ 
         return document.location.replace('/');
     };
     return (
