@@ -13,6 +13,7 @@ const Profile = () => {
         variables: {username: userParam },
     });
     const user = data?.me || data?.user || {};
+    //if logged in user matches  username 
     if(Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return <Navigate to="/me" />
     }
