@@ -9,6 +9,7 @@ export const QUERY_USER = gql`
             thoughts{
                 _id
                 thoughtText
+                username
                 createdAt
             }
             friends{
@@ -34,7 +35,7 @@ export const QUERY_SINGLE_THOUGHT = gql`
         thought(thoughtId: $thoughtId) {
             _id
             thoughtText
-            thoughtAuthor
+            username
             createdAt
             reaction {
                 reactionId

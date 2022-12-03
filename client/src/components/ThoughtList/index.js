@@ -5,18 +5,16 @@ import {Link } from "react-router-dom";
 
 const ThoughtList = ({
     thoughts,
-    title,
-    showTitle = true,
     showUsername = true,
 }) => {
-    
+    console.log(thoughts)
+
     if (!thoughts.length) {
         return "No thoughts to view as of yet!"
     }
-
     return(
         <div>
-            {showTitle && <h1>{title}</h1>}
+            <h1>Discussions</h1>
             {thoughts &&  thoughts.map((thought) => (
             <div key= {thought._id}>
                 {showUsername ? (
