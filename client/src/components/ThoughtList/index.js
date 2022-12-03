@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link } from "react-router-dom";
 
 //NEED TO ADD CURRENT USER TO THE DISCUSSION CURRENTLY SHOWS AS NONE
 
@@ -12,7 +12,6 @@ const ThoughtList = ({
     if (!thoughts.length) {
         return "No thoughts to view as of yet!"
     }
-
     return(
         <div>
             {showTitle && <h1>{title}</h1>}

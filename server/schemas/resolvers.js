@@ -54,8 +54,9 @@ const resolvers = {
         });
         console.log(thought);
         await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $push: { thoughts: thought._id } }
+          { _id: context.user._id },      
+          { $push: { thoughts: thought._id } },
+
         );
         return thought;
       }

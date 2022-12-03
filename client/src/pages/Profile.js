@@ -2,7 +2,6 @@ import React from 'react';
 import { Navigate, useParams } from "react-router-dom";
 import {useQuery} from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries"
-import ThoughtForm from "../components/ThoughtForm";
 import ThoughtList from "../components/ThoughtList";
 import Navbar from "../components/Navbar"
 
@@ -26,7 +25,7 @@ const Profile = () => {
         <div>
          <Navbar />
            <h1> Viewing {userParam ? `${user.username}'s` : "my"} profile</h1>
-           <h2> {user.username}'s thoughts...`</h2>
+           <h2> {user.username}'s posted thoughts...</h2>
            
            <ThoughtList
             thoughts={user.thoughts}
