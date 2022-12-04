@@ -6,8 +6,7 @@ const Navbar = () => {
     const logout = (event) => {
         event.preventDefault();
         Auth.logout();
- 
-        return document.location.replace('/');
+
     };
     return (
         <nav>

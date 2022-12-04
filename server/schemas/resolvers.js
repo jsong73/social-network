@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Thought, Reaction } = require("../models");
+const { User, Thought } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -7,18 +7,15 @@ const resolvers = {
     users: async () => {
       return User.find().populate("thoughts");
     },
+    user: async (parent, {username}) => {
+      return User.findOne({ username }).popoulate("thoughts")
+    },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Thought.find(params).sort({ createdAt: -1 });
     },
     thought: async (parent, { thoughtId }) => {
       return Thought.findOne({ _id: thoughtId });
-    },
-    reactions: async (parent, { username }) => {
-      return Reaction.find();
-    },
-    reaction: async (parent, { reactionId }) => {
-      return Reaction.findOne({ _id: reactionId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -56,17 +53,16 @@ const resolvers = {
         await User.findOneAndUpdate(
           { _id: context.user._id },      
           { $push: { thoughts: thought._id } },
-
         );
         return thought;
       }
       throw new AuthenticationError("You must be logged in!");
     },
-    addReaction: async (parent, { reactionId, reactionBody }, context) => {
+    addComment: async (parent, { thoughtId, commentText, username}, context) => {
       if (context.user) {
-        return Reaction.findOneAndUpdate(
-          { _id: reactionId },
-          { $addtoSet: { reactions: reactionBody } },
+        return Thought.findOneAndUpdate(
+          { _id: thoughtId },
+          { $addtoSet: { comments: commentText, comments: username } },
           { new: true, runvalidators: true }
         );
       }
@@ -85,15 +81,13 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in!");
     },
-    removeReaction: async (parent, { reactionId }, context) => {
+    removeComment: async (parent, { thoughtId, commentId, username }, context) => {
       if (context.user) {
-        return Reaction.findOneAndUpdate(
-          { reactionId },
+        return Thought.findOneAndUpdate(
+          { _id: thoughtId },
           {
             $pull: {
-              reactionId,
-              reactionBody,
-              username,
+              comments:{ username , _id: commentId}
             },
           },
           { new: true }

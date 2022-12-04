@@ -30,8 +30,8 @@ const Profile = () => {
            
            <ThoughtList
             thoughts={user.thoughts}
-            showTitle={false}
-            showUsername={false}
+            showTitle={true}
+            showUsername={true}
           />
 
         </div>

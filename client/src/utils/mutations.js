@@ -39,11 +39,19 @@ export const ADD_THOUGHT = gql`
 }
 `;
 
-export const ADD_REACTION = gql`
-    mutation addReaction($reactionId: ID!, $reactionBody: String!) {
-        addReaction(reactionId: $reactionId, reactionBody: $reactionBody){
-            reactionId,
-            reactionBody
-        }
+export const ADD_COMMENT = gql`
+  mutation addComment($thoughtId: ID!, $commentText: String!) {
+    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+      _id
+      thoughtText
+      username
+      createdAt
+      comments {
+        _id
+        username
+        commentText
+        createdAt
+      }
     }
+  }
 `;

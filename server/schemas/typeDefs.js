@@ -7,20 +7,27 @@ const typeDefs = gql`
     email: String
     password: String
     thoughts: [Thought]!
-    friends: [User]!
   }
   type Thought {
     _id: ID
     thoughtText: String
     createdAt: String
     username: String
-    reactions: [Reaction]
+    comments: [Comment]!
+    likes: [Like]!
+    likeCount: Int!
+    commentCount: Int!
   }
-  type Reaction {
-    reactionId: ID
-    reactionBody: String
+  type Comment {
+    _id: ID
+    commentText: String
     username: String
     createdAt: String
+  }
+  type Like {
+    id: ID!
+    createdAt: String
+    username: String
   }
   type Auth {
     token: ID!
@@ -31,17 +38,16 @@ const typeDefs = gql`
     user(username: String!): User
     thoughts(username: String): [Thought]
     thought(thoughtId: ID!): Thought
-    reactions: [Reaction]
-    reaction(reactionId: ID!): Reaction
     me: User
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addThought(thoughtText: String!): Thought
-    addReaction(reactionId: ID!, reactionBody: String!): Reaction
+    addComment(thoughtId: ID!, commentText: String!): Thought
     removeThought(thoughtId: ID!): Thought
-    removeReaction(reactionId: ID!): Reaction
+    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    likePost(thoughtId: ID!): Thought
   }
 `;
 

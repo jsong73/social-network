@@ -42,7 +42,7 @@ const Login = (props) => {
     return(
     <main>
         <h1>Login</h1>
-        {data ? (document.location.replace("/home")): (
+        {data ? (window.location.assign("/home")): (
              <form onSubmit= {loginFormHandler}>
               <input
                 className="form-input"

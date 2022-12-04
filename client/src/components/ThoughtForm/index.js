@@ -12,7 +12,6 @@ const ThoughtForm = () => {
         update(cache, {data: {addThought}}){
             try {
                 const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS});
-                
 
                 cache.writeQuery({
                     query: QUERY_THOUGHTS,
@@ -26,7 +25,7 @@ const ThoughtForm = () => {
             const { me } = cache.readQuery({ query: QUERY_ME});
             cache.writeQuery({
                 query: QUERY_ME, 
-                data: { me: { ...me, thoughts: [...me.thoughts, addThought] } }
+                data: { me: {...me, thoughts: [...me.thoughts, addThought] } }
             });
         },
     });
@@ -37,9 +36,10 @@ const ThoughtForm = () => {
             const { data } = await addThought ({
                 variables: {
                     thoughtText,
-                    username: Auth.getProfile().data.username,
+                    username: Auth.getProfile(),
                 }
             });
+        console.log(data)
 
         setThoughtText("");
         } catch (error) {
@@ -58,7 +58,7 @@ const ThoughtForm = () => {
 
     return(
     <div>
-        <h1> Hello {Auth.getProfile().data.username}, </h1>
+        <h1> Welcome {Auth.getProfile().data.username}, </h1>
     
             <form onSubmit={thoughtFormHandler}>
                 <textarea
