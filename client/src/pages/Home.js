@@ -10,9 +10,11 @@ const Home = () => {
     const {loading, data} = useQuery(QUERY_THOUGHTS);
     const thoughts = data?.thoughts || [];
 
+
     return (
       <main>
         <Navbar />
+
         <div style={{border: "1px solid black"}}>
             <ThoughtForm />
         </div>
@@ -22,8 +24,9 @@ const Home = () => {
           ) : (
         <ThoughtList 
         title= "Discussions"
-        thoughts= {thoughts}/>
-          )}
+        thoughts= {thoughts} />
+         )}
+
           </div>
       </main>
     );

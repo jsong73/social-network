@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import Auth from "../../utils/auth";
+import React, { useState, useMutation } from "react";
 import {ADD_COMMENT} from "../../utils/mutations"
-import Auth from "../../utils/auth";
 
-const CommentBox = ({ thoughtId }) => {
+
+const CommentForm = ({ thoughtId }) => {
     const [commentText, setCommentText] = useState("");
     const [characterCount, setCharacterCount] = useState(0);
 
@@ -16,7 +15,6 @@ const CommentBox = ({ thoughtId }) => {
                 variables:{
                     thoughtId,
                     commentText,
-                    username,
                 },
             })
             setCommentText("");
@@ -36,7 +34,7 @@ const CommentBox = ({ thoughtId }) => {
         <div>
             <h1> leave a comment </h1>
 
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={commentFormHandler}>
             
               <textarea
                 name="commentText"
@@ -55,3 +53,5 @@ const CommentBox = ({ thoughtId }) => {
         </div>
     )
 }
+
+export default CommentForm;
