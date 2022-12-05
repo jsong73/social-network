@@ -50,7 +50,7 @@ function App() {
 
                   <Route path="/me" element={<Profile />} />
 
-                  <Route exact path="/thoughts/:thoughtId" element={<SingleThought />} /> 
+                  <Route path="/thoughts/:thoughtId" element={<SingleThought />} /> 
                   
                   {/* <Route path="/profiles/:username" element={<Profile />} /> */}
 

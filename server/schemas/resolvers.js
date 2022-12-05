@@ -44,8 +44,8 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    //added username to show current user thoughts
-    addThought: async (parent, { thoughtText}, context) => {
+    //added username to show current user 
+    addThought: async (parent, { thoughtText }, context) => {
       if (context.user) {
         const thought = await Thought.create({
           thoughtText,
@@ -65,7 +65,7 @@ const resolvers = {
         return Thought.findOneAndUpdate(
           { _id: thoughtId },
           { $addtoSet: { comments: commentText, comments: username } },
-          { new: true, runvalidators: true }
+          { new: true, runValidators: true }
         );
       }
       throw new AuthenticationError("You must be logged in!");

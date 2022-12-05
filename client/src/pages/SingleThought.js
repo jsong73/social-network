@@ -14,7 +14,7 @@ const SingleThought = () => {
 
     const thought = data?.thought || {};
     if (loading) {
-        return <div>loading...</div>
+        return "loading..."
     }
     return(
         <main>
@@ -24,10 +24,10 @@ const SingleThought = () => {
            <p>{thought.thoughtText}</p> 
 
             <div>
-                <CommentList comments={thought.comment}/>
+                <CommentList comments={thought.comments} />
             </div>
             <div>
-                <CommentForm thoughtId={thought._id}/>
+                <CommentForm thoughtId={thought._id} />
             </div>
 
         </main>

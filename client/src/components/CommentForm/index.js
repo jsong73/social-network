@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import {ADD_COMMENT} from "../../utils/mutations"
-
+// import Auth from "../../utils/auth"
 
 const CommentForm = ({ thoughtId }) => {
     const [commentText, setCommentText] = useState("");
@@ -16,13 +16,15 @@ const CommentForm = ({ thoughtId }) => {
                 variables:{
                     thoughtId,
                     commentText,
+                    // _id: Auth.getProfile().data.username,
                 },
             })
+            console.log(data)
 
         setCommentText("");
         setCharacterCount("0")
         } catch (error) {
-            console.log(error)
+        console.log(error)
         }
     };
 
@@ -46,13 +48,14 @@ const CommentForm = ({ thoughtId }) => {
                 onChange={handleChange}></textarea>
 
                 <button type="submit"> Add Comment </button>
-
-                <p className={`${characterCount === 280 || error ? 'text-danger' : ''}`}>
-                Character Count: {characterCount}/280
-               </p>
-    
     
              </form>
+
+             <p className={`${characterCount === 280 || error ? 'text-danger' : ''}`}>
+                Character Count: {characterCount}/280
+            </p>
+ 
+
         </div>
     )
 }
