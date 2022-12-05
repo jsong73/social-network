@@ -17,12 +17,12 @@ const resolvers = {
     thought: async (parent, { thoughtId }) => {
       return Thought.findOne({ _id: thoughtId });
     },
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("thoughts");
-      }
-      throw new AuthenticationError("You must be logged in.");
-    },
+    // me: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return User.findOne({ _id: context.user._id }).populate("thoughts");
+    //   }
+    //   throw new AuthenticationError("You must be logged in.");
+    // },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -60,11 +60,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in!");
     },
-    addComment: async (parent, { thoughtId, commentText, username}, context) => {
+    addComment: async (parent, { thoughtId, commentText}, context) => {
       if (context.user) {
         return Thought.findOneAndUpdate(
           { _id: thoughtId },
-          { $addtoSet: { comments: commentText, comments: username } },
+          {$addToSet: {comments: { commentText, username: context.user.username }}},
           { new: true, runValidators: true }
         );
       }

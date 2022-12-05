@@ -1,10 +1,11 @@
 import React from "react";
 
-const CommentList = ({ comments = [] }) => {
+const CommentList = ({ comments = [" "] }) => {
     if(!comments.length) {
         return "No comments to view as of yet!"
-        
     }
+    console.log(comments)
+
     return(
         <div>
             <h1>Comments</h1>

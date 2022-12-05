@@ -7,7 +7,7 @@ const ThoughtList = ({
 }) => {
     if (!thoughts.length) {
         return "No thoughts to view as of yet!"
-    }
+    }  
     console.log(thoughts)
     return(
         <div>
