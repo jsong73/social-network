@@ -44,10 +44,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addThought: async (parent, { thoughtText }, context) => {
+    addThought: async (parent, { thoughtText}, context) => {
       if (context.user) {
         const thought = await Thought.create({
           thoughtText,
+          username: context.user.username,
         });
         console.log(thought);
         await User.findOneAndUpdate(

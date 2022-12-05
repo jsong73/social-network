@@ -21,34 +21,42 @@ const ThoughtForm = () => {
                 console.log(error);
             }
 
+            // try{
             // const { me } = cache.readQuery({ query: QUERY_ME});
             // cache.writeQuery({
             //     query: QUERY_ME, 
             //     data: { me: {...me, thoughts: [...me.thoughts, addThought]}}
-            // });
-        },
+            // })
+            //  } catch(error){
+            // console.log(error)
+            // }
+        }
     });
+    
 
     const thoughtFormHandler = async (event) => {
         event.preventDefault();
         try {
-          const { data, username } = await addThought({
+        
+            const { data } = await addThought({
             variables: {
               thoughtText,
-              username: Auth.getProfile(),
+              _id: Auth.getProfile().data.username,
             },
           });
-          console.log(data , username)
+          console.log(data)
           setThoughtText('');
         } catch (err) {
           console.error(err);
         }
-      };
+    };
+    
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         if (name === "thoughtText" && value.length <= 280) {
             setThoughtText(value);
+    
             setCharacterCount(value.length);
         }
     };
@@ -56,7 +64,8 @@ const ThoughtForm = () => {
     return(
     <div>
         <h1> Welcome {Auth.getProfile().data.username}, </h1>
-    
+     
+   
             <form onSubmit={thoughtFormHandler}>
                 <textarea
                     name="thoughtText"
@@ -66,14 +75,15 @@ const ThoughtForm = () => {
             
              <button type="submit"> Submit </button>
              </form>
-             
+
            <p className={`${characterCount === 280 || error ? 'text-danger' : ''}`}>
             Character Count: {characterCount}/280
           </p>
-    
+          
+
     </div>
    
-    )
+)
 }
 
 export default ThoughtForm;
