@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import CommentForm from "../CommentForm";
 
 const ThoughtList = ({
     thoughts,
@@ -9,15 +8,14 @@ const ThoughtList = ({
     if (!thoughts.length) {
         return "No thoughts to view as of yet!"
     }
-
- 
+    console.log(thoughts)
     return(
         <div>
             <h1>Discussions</h1>
             {thoughts && thoughts.map((thought) => (
             <div key= {thought._id}>
                 {showUsername ? (
-                    <Link to= {`/profiles/${thought.username}`}>
+                    <Link to= {`/thoughts/${thought._id}`}>
                    {thought.username} created this thought on {thought.createdAt}
                     </Link>
                 ) : (

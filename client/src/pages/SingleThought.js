@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import CommentList from "../components/CommentList"
 import CommentForm from "../components/CommentForm"
-
+import Navbar from "../components/Navbar"
 import { QUERY_SINGLE_THOUGHT } from "../utils/queries";
 
 const SingleThought = () => {
@@ -14,21 +14,23 @@ const SingleThought = () => {
 
     const thought = data?.thought || {};
     if (loading) {
-        return "Loading..."
+        return <div>loading...</div>
     }
     return(
-        <div>
+        <main>
+            <Navbar />
+
             {thought.username} has this thought on {thought.createdAt}
-            {thought.thoughtText}
+           <p>{thought.thoughtText}</p> 
 
             <div>
                 <CommentList comments={thought.comment}/>
             </div>
             <div>
-                <CommentForm thoughtId={thought.thought._id}/>
+                <CommentForm thoughtId={thought._id}/>
             </div>
 
-        </div>
+        </main>
     )
 }
 

@@ -20,7 +20,7 @@ const CommentForm = ({ thoughtId }) => {
             })
 
         setCommentText("");
-        setCharacterCount("")
+        setCharacterCount("0")
         } catch (error) {
             console.log(error)
         }
@@ -35,7 +35,7 @@ const CommentForm = ({ thoughtId }) => {
     };
     return(
         <div>
-            <h1> leave a comment </h1>
+            <h1> Leave a comment below </h1>
 
             <form onSubmit={commentFormHandler}>
             
