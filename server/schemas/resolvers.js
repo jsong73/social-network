@@ -44,6 +44,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    //added username to show current user thoughts
     addThought: async (parent, { thoughtText}, context) => {
       if (context.user) {
         const thought = await Thought.create({

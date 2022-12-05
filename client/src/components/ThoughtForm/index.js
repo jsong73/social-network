@@ -1,7 +1,7 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_THOUGHT } from "../../utils/mutations"
-import  { QUERY_THOUGHTS, QUERY_ME } from "../../utils/queries"
+import  { QUERY_THOUGHTS} from "../../utils/queries"
 import Auth from "../../utils/auth";
 
 const ThoughtForm = () => {
@@ -45,7 +45,8 @@ const ThoughtForm = () => {
             },
           });
           console.log(data)
-          setThoughtText('');
+          setThoughtText("");
+          setCharacterCount("0")
         } catch (err) {
           console.error(err);
         }
@@ -56,7 +57,6 @@ const ThoughtForm = () => {
         const { name, value } = event.target;
         if (name === "thoughtText" && value.length <= 280) {
             setThoughtText(value);
-    
             setCharacterCount(value.length);
         }
     };

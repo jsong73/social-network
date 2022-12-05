@@ -1,8 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
-
-//NEED TO ADD CURRENT USER TO THE DISCUSSION CURRENTLY SHOWS AS NULL
+import CommentForm from "../CommentForm";
 
 const ThoughtList = ({
     thoughts,
@@ -21,7 +19,6 @@ const ThoughtList = ({
                 {showUsername ? (
                     <Link to= {`/profiles/${thought.username}`}>
                    {thought.username} created this thought on {thought.createdAt}
-                   
                     </Link>
                 ) : (
                     <>
@@ -31,7 +28,6 @@ const ThoughtList = ({
                 <div>
                 <p>{thought.thoughtText}</p>
                 </div>
-                
             </div>
             ))}
         </div>

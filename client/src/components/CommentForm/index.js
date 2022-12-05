@@ -1,4 +1,5 @@
-import React, { useState, useMutation } from "react";
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
 import {ADD_COMMENT} from "../../utils/mutations"
 
 
@@ -18,7 +19,8 @@ const CommentForm = ({ thoughtId }) => {
                 },
             })
 
-            setCommentText("");
+        setCommentText("");
+        setCharacterCount("")
         } catch (error) {
             console.log(error)
         }

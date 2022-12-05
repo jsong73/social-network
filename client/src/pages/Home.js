@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar"
 import ThoughtForm from "../components/ThoughtForm"
 import ThoughtList from "../components/ThoughtList"
 
+
 const Home = () => {
 
     const {loading, data} = useQuery(QUERY_THOUGHTS);
@@ -25,8 +26,11 @@ const Home = () => {
         title= "Discussions"
         thoughts= {thoughts} />
          )}
+
           </div>
+       
       </main>
+      
     );
   };
   

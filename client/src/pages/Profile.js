@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {useQuery} from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries"
 import ThoughtList from "../components/ThoughtList";
@@ -16,11 +16,11 @@ const Profile = () => {
     console.log(user)
     //if logged in user matches username 
     if(Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-        return <Navigate to="/me" />
+        return  window.location.assign("/me");
     }
 
     if (loading) {
-        return "loading...."
+        return <div>loading...</div>
     }
 
     return(
