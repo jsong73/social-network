@@ -31,14 +31,15 @@ export const ADD_THOUGHT = gql`
             thoughtText
             username
             createdAt
-            reactions {
-                reactionId
-                reactionBody
-        }
-    }
-}
+            comments {
+                _id
+                username
+                commentText
+              }
+            }
+          }
 `;
-
+        
 export const ADD_COMMENT = gql`
   mutation addComment($thoughtId: ID!, $commentText: String!) {
     addComment(thoughtId: $thoughtId, commentText: $commentText) {

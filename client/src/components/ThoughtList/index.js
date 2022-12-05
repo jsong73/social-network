@@ -23,7 +23,6 @@ const ThoughtList = ({
                     </Link>
                 ) : (
                     <>
-
                     </>
                 )}
 

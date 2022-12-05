@@ -36,9 +36,7 @@ const Signup = () => {
             username:"",
             password:"",
         })
-        
     };
-
 
     return(
     <main>

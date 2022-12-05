@@ -8,11 +8,10 @@ const ThoughtForm = () => {
     const [thoughtText, setThoughtText] = useState("");
     const [characterCount, setCharacterCount ] = useState(0);
 
-    const [addThought, {error}] = useMutation(ADD_THOUGHT, {
-        update(cache, {data: {addThought}}){
+    const [addThought, { error }] = useMutation(ADD_THOUGHT, {
+        update(cache, {data: { addThought }}){
             try {
                 const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS});
-
                 cache.writeQuery({
                     query: QUERY_THOUGHTS,
                     data: { thoughts: [addThought,...thoughts]}, 
@@ -22,35 +21,33 @@ const ThoughtForm = () => {
                 console.log(error);
             }
 
-            const { me } = cache.readQuery({ query: QUERY_ME});
-            cache.writeQuery({
-                query: QUERY_ME, 
-                data: { me: {...me, thoughts: [...me.thoughts, addThought] } }
-            });
+            // const { me } = cache.readQuery({ query: QUERY_ME});
+            // cache.writeQuery({
+            //     query: QUERY_ME, 
+            //     data: { me: {...me, thoughts: [...me.thoughts, addThought]}}
+            // });
         },
     });
 
     const thoughtFormHandler = async (event) => {
         event.preventDefault();
         try {
-            const { data } = await addThought ({
-                variables: {
-                    thoughtText,
-                    username: Auth.getProfile(),
-                }
-            });
-        console.log(data)
-
-        setThoughtText("");
-        } catch (error) {
-        console.log(error);
+          const { data, username } = await addThought({
+            variables: {
+              thoughtText,
+              username: Auth.getProfile(),
+            },
+          });
+          console.log(data , username)
+          setThoughtText('');
+        } catch (err) {
+          console.error(err);
         }
-    };
+      };
 
     const handleChange = (event) => {
-        const {name, value } = event.target;
-
-        if ( name === "thoughtText" && value.length <= 280) {
+        const { name, value } = event.target;
+        if (name === "thoughtText" && value.length <= 280) {
             setThoughtText(value);
             setCharacterCount(value.length);
         }

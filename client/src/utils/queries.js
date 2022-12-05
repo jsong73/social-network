@@ -12,12 +12,9 @@ export const QUERY_USER = gql`
                 username
                 createdAt
             }
-            friends{
-                username
-            }
         }
     }
-`
+`;
 
 export const QUERY_THOUGHTS = gql`
     query getThoughts  {
@@ -28,7 +25,7 @@ export const QUERY_THOUGHTS = gql`
             createdAt
         }
     }
-`
+`;
 
 export const QUERY_SINGLE_THOUGHT = gql`
     query getSingleThought($thoughtId: ID!) {
@@ -37,15 +34,16 @@ export const QUERY_SINGLE_THOUGHT = gql`
             thoughtText
             username
             createdAt
-            reaction {
-                reactionId
-                reactionBody
+            comments {
+                _id
+                commentText
                 username
                 createdAt
-        }
-    }
-}
-`
+              }
+            }
+          }
+`;
+
 export const QUERY_ME = gql`
     query me {
         me {
@@ -60,4 +58,4 @@ export const QUERY_ME = gql`
             }
         }
     }
-`
+`;

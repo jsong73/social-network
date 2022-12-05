@@ -14,12 +14,13 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Profile from "./pages/Profile"
 import Signup from "./pages/Signup"
-import SingleThought from "./pages/SingleThought"
+// import SingleThought from "./pages/SingleThought"
 
 
 const httpLink = createHttpLink({
   uri: "/graphql"
 })
+
 const authLink = setContext ((_, { headers }) => {
   const token =localStorage.getItem ("id_token");
   return {
@@ -48,8 +49,10 @@ function App() {
                   <Route path="/signup" element={<Signup />} />
 
                   <Route path="/me" element={<Profile />} />
+{/*                  
+                  <Route path="/profiles/:username" element={<Profile />} />
 
-                  <Route exact path="/thoughts/:thoughtId" element={<SingleThought />} />
+                  <Route exact path="/thoughts/:thoughtId" element={<SingleThought />} /> */}
 
               </Routes>
             </div>
