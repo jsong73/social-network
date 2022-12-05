@@ -27,8 +27,14 @@ const Profile = () => {
         <div>
          <Navbar />
            <h1> Viewing {userParam ? `${user.username}'s` : "my"} profile</h1>
-           <h2> {user.username}'s posted thoughts...</h2>
            
+            <h1> Account information: </h1>
+            <p>Default email: {user.email}</p>
+            <p>Username: {user.username}</p>
+            <p></p>
+  
+
+            <h2> {user.username}'s posted thoughts...</h2>
            <ThoughtList
             thoughts={user.thoughts}
             showTitle={true}
