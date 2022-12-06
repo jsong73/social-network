@@ -41,11 +41,17 @@ const Login = (props) => {
 
     return(
     <main>
-        <h1>Login</h1>
+        <h1 className="mt-6 text-center text-4xl font-bold tracking-tight text-gray-900">Login</h1>
+      
+        <p className="mt-2 text-center text-lg text-red">
+        <button> <Link to="/signup" className ="font-medium text-indigo-600 hover:text-indigo-500"> Or create a new account </Link></button>
+        </p>
+
         {data ? (window.location.assign("/home")): (
-             <form onSubmit= {loginFormHandler}>
+             <form className="mt-8 space-y-6"  onSubmit= {loginFormHandler}>
+
               <input
-                className="form-input"
+                className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Email"
                 name="email"
                 type="email"
@@ -54,26 +60,23 @@ const Login = (props) => {
                 onChange={handleChange}/>
 
               <input
-                className="form-input"
+                className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Password"
                 name="password"
                 type="password"
                 autoComplete="off"
                 value= {formState.password}
                 onChange={handleChange}/>
-
-              <button type="submit"> Submit </button>
+            
+              <button className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit"> Sign in </button>
+          
             </form>
         )}
 
         {error && (
             <div>{error.message}</div>
         )}
-
-        <br></br>
-
-        <button> <Link to="/signup"> Create new account </Link></button>
-           
+        
         </main>
           )}
 

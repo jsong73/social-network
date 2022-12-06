@@ -16,7 +16,6 @@ const ThoughtForm = () => {
                     query: QUERY_THOUGHTS,
                     data: { thoughts: [addThought,...thoughts]}, 
                 });
-           
             } catch (error){
                 console.log(error);
             }

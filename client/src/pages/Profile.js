@@ -13,7 +13,6 @@ const Profile = () => {
         variables: {username: userParam },
     });
     const user = data?.me || data?.user || {};
-    console.log(data)
     //if logged in user matches username 
     if(Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return  window.location.assign("/me");
