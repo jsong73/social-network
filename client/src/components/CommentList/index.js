@@ -1,6 +1,6 @@
 import React from "react";
 
-const CommentList = ({ comments = [" "] }) => {
+const CommentList = ({ comments = [""] }) => {
     if(!comments.length) {
         return "No comments to view as of yet!"
     }
@@ -12,11 +12,11 @@ const CommentList = ({ comments = [" "] }) => {
         {comments && comments.map((comment) => (
             
             <div key={comment._id}>
-                {comment.username} commented {" "} on {comment.createdAt}
+            {comment.username} commented {""} on {comment.createdAt}
             <p> {comment.commentText} </p>
-         
             </div>
         ))}
+        
         </div>
     )}
 

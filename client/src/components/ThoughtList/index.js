@@ -1,18 +1,21 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-
 const ThoughtList = ({
     thoughts,
     showUsername = true,
 }) => {
-    if (thoughts === 0 ) {
+    if (!thoughts.length) {
         return "No thoughts to view as of yet!"
     }  
+ 
+//  console.log(comments)
 
     return(
         <div>
+            
             <h1>Discussions</h1>
+    
             {thoughts && thoughts.map((thought) => (
             <div key= {thought._id}>
                 {showUsername ? (
@@ -24,9 +27,9 @@ const ThoughtList = ({
                     </>
                 )}
                 <div>
-                <p>{thought.thoughtText}</p>          
+                <p>{thought.thoughtText}</p>      
                 </div>
-
+        
             </div>
             ))}
         </div>

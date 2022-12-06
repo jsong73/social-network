@@ -29,7 +29,7 @@ const SingleThought = () => {
             <div>
                 <CommentForm thoughtId={thought._id} />
             </div>
-
+          
         </main>
     )
 }

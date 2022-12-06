@@ -1,5 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Thought } = require("../models");
+const { countDocuments } = require("../models/Thought");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -97,7 +98,18 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in!");
     },
+    likeThought: async (parent, { thoughtId, likeId, username}, context) => {
+      if(context.user) {
+        return Thought.findOneAndUpdate(
+          {_id: thoughtId },
+          {$addToSet: { likes: { likeCount, username: context.user.username}}},
+          {new: true, runValidators: true}
+        )
+      }
+      throw new AuthenticationError("You must be logged in!")
+    }
   },
 };
 
 module.exports = resolvers;
+
