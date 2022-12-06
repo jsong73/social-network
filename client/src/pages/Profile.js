@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import {useQuery} from "@apollo/client";
+import { useQuery} from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries"
 import ThoughtList from "../components/ThoughtList";
 import Navbar from "../components/Navbar"
@@ -13,7 +13,7 @@ const Profile = () => {
         variables: {username: userParam },
     });
     const user = data?.me || data?.user || {};
-    console.log(user)
+    console.log(data)
     //if logged in user matches username 
     if(Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return  window.location.assign("/me");

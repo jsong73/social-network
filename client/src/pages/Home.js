@@ -5,9 +5,7 @@ import Navbar from "../components/Navbar"
 import ThoughtForm from "../components/ThoughtForm"
 import ThoughtList from "../components/ThoughtList"
 
-
 const Home = () => {
-
     const {loading, data} = useQuery(QUERY_THOUGHTS);
     const thoughts = data?.thoughts || [];
 
@@ -16,7 +14,7 @@ const Home = () => {
         <Navbar />
 
         <div style={{border: "1px solid black"}}>
-            <ThoughtForm />
+        <ThoughtForm />
         </div>
         <div>
           {loading ? (
@@ -27,6 +25,7 @@ const Home = () => {
         thoughts= {thoughts} />
          )}
 
+    
           </div>
        
       </main>

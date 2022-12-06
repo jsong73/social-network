@@ -8,12 +8,13 @@ const CommentList = ({ comments = [" "] }) => {
 
     return(
         <div>
-            <h1>Comments</h1>
+            <h1>Comments ({comments.length})</h1>
         {comments && comments.map((comment) => (
+            
             <div key={comment._id}>
                 {comment.username} commented {" "} on {comment.createdAt}
             <p> {comment.commentText} </p>
-
+         
             </div>
         ))}
         </div>

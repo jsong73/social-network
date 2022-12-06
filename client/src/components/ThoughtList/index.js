@@ -1,14 +1,15 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
+
 const ThoughtList = ({
     thoughts,
     showUsername = true,
 }) => {
-    if (!thoughts.length) {
+    if (thoughts === 0 ) {
         return "No thoughts to view as of yet!"
     }  
-    console.log(thoughts)
+
     return(
         <div>
             <h1>Discussions</h1>
@@ -22,10 +23,10 @@ const ThoughtList = ({
                     <>
                     </>
                 )}
-
                 <div>
-                <p>{thought.thoughtText}</p>
+                <p>{thought.thoughtText}</p>          
                 </div>
+
             </div>
             ))}
         </div>
