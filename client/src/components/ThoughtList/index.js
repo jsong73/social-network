@@ -8,9 +8,6 @@ const ThoughtList = ({
     if (!thoughts.length) {
         return "No thoughts to view as of yet!"
     }  
- 
-//  console.log(comments)
-
     return(
         <div>
             
@@ -29,7 +26,6 @@ const ThoughtList = ({
                 <div>
                 <p>{thought.thoughtText}</p>      
                 </div>
-        
             </div>
             ))}
         </div>

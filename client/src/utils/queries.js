@@ -23,9 +23,6 @@ export const QUERY_THOUGHTS = gql`
             thoughtText
             username
             createdAt
-            likes {
-                username
-            }
         }
     }
 `;

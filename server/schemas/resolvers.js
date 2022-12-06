@@ -9,7 +9,7 @@ const resolvers = {
       return User.find().populate("thoughts");
     },
     user: async (parent, {username}) => {
-      return User.findOne({ username }).popoulate("thoughts")
+      return User.findOne({ username }).populate("thoughts")
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -98,16 +98,6 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in!");
     },
-    likeThought: async (parent, { thoughtId, likeId, username}, context) => {
-      if(context.user) {
-        return Thought.findOneAndUpdate(
-          {_id: thoughtId },
-          {$addToSet: { likes: { likeCount, username: context.user.username}}},
-          {new: true, runValidators: true}
-        )
-      }
-      throw new AuthenticationError("You must be logged in!")
-    }
   },
 };
 

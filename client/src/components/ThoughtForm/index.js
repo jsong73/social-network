@@ -20,20 +20,9 @@ const ThoughtForm = () => {
             } catch (error){
                 console.log(error);
             }
-
-            // try{
-            // const { me } = cache.readQuery({ query: QUERY_ME});
-            // cache.writeQuery({
-            //     query: QUERY_ME, 
-            //     data: { me: {...me, thoughts: [...me.thoughts, addThought]}}
-            // })
-            //  } catch(error){
-            // console.log(error)
-            // }
         }
     });
     
-
     const thoughtFormHandler = async (event) => {
         event.preventDefault();
         try {

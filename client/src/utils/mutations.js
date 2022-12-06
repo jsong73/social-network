@@ -56,16 +56,3 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
-
-export const LIKE_THOUGHT = gql`
-  mutation likeThought($thoughtId: ID!){
-    likeThought(thoughtId: $thoughtId){
-      _id
-      likes{
-        _id
-        username
-      }
-      likeCount
-    }
-  }
-`
