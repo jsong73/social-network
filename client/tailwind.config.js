@@ -32,5 +32,6 @@ screens: {
   'xl': {'min': '1200px'},
 },
 plugins: [],
-};
+}
+;
 
