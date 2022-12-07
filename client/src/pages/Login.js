@@ -41,17 +41,19 @@ const Login = (props) => {
 
     return(
     <main>
-        <h1 className="mt-6 text-center text-4xl font-bold tracking-tight text-gray-900">Login</h1>
+        <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-md space-y-8">
+        <h1 className="mt-6 text-center text-4xl tracking-tight text-gray-900">Sign in to your account </h1>
       
-        <p className="mt-2 text-center text-lg text-red">
-        <button> <Link to="/signup" className ="font-medium text-indigo-600 hover:text-indigo-500"> Or create a new account </Link></button>
+        <p className="mt-2 text-center text-sm text-gray-600">  Or{' '}
+        <button> <Link to="/signup" className ="mt-2 text-center font-medium text-indigo-600 hover:text-indigo-500"> create a new account </Link></button>
         </p>
 
         {data ? (window.location.assign("/home")): (
              <form className="mt-8 space-y-6"  onSubmit= {loginFormHandler}>
 
               <input
-                className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="relative block w-full appearance-none rounded-md rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Email"
                 name="email"
                 type="email"
@@ -60,7 +62,7 @@ const Login = (props) => {
                 onChange={handleChange}/>
 
               <input
-                className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="relative block w-full appearance-none rounded-md rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Password"
                 name="password"
                 type="password"
@@ -76,7 +78,8 @@ const Login = (props) => {
         {error && (
             <div>{error.message}</div>
         )}
-        
+         </div>
+        </div>
         </main>
           )}
 
