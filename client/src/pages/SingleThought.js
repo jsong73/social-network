@@ -31,7 +31,7 @@ const SingleThought = () => {
             {thought.username} had this thought on {thought.createdAt}
             </div >
             <br></br>
-            <p className="text-xl text-gray-700">{thought.thoughtText}</p>
+            <p className="text-lg text-gray-700">{thought.thoughtText}</p>
             <br></br>
             
             <div>

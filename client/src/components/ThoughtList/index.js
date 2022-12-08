@@ -36,7 +36,7 @@ const ThoughtList = ({
                 )}
  
                 <div>
-                <p className=" text-gray-700">{thought.thoughtText}</p>      
+                <p className="text-lg text-gray-700">{thought.thoughtText}</p>      
                 </div>
                 
                 <Link 
