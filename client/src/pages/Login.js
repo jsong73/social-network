@@ -40,10 +40,11 @@ const Login = (props) => {
     }
 
     return(
-    <main id="login-page">
-        <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <main>
+
+        <div className="flex min-h-full items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
        
-        <div className="w-full max-w-md space-y-8">
+        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 className="mt-6 text-center text-4xl tracking-tight text-gray-900">Sign in to your account </h1>
       
         <p className="mt-2 text-center text-sm text-gray-600">  Or{' '}
@@ -52,7 +53,6 @@ const Login = (props) => {
 
         {data ? (window.location.assign("/home")): (
              <form className="mt-8 space-y-6"  onSubmit= {loginFormHandler}>
-
               <input
                 className="relative block w-full appearance-none rounded-md rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Email"
@@ -71,13 +71,15 @@ const Login = (props) => {
                 value= {formState.password}
                 onChange={handleChange}/>
             
-              <button className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit"> Sign in </button>
-          
+              <button 
+              className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit"> Sign in </button>       
             </form>
         )}
 
         {error && (
-            <div>{error.message}</div>
+            <div 
+            className="mt-2 text-center text-sm text-gray-600">
+            {error.message}</div>
         )}
          </div>
         </div>

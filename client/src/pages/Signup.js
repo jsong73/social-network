@@ -2,6 +2,7 @@ import React , { useState } from 'react';
 import { useMutation } from "@apollo/client"
 import  {ADD_USER} from "../utils/mutations"
 import Auth from "../utils/auth";
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
     const [formState, setFormState] = useState({
@@ -40,11 +41,21 @@ const Signup = () => {
 
     return(
     <main>
-        <h1> Sign up </h1>
+        <div className="flex min-h-full items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
+            
+        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h1 className="mt-6 text-center text-4xl tracking-tight text-gray-900"> Create a new account </h1>
+
+        <p className="mt-2 text-center text-sm text-gray-600">  Or{' '}
+        <button> <Link to="/" className ="mt-2 text-center font-medium text-indigo-600 hover:text-indigo-500"> sign in </Link></button>
+        </p>
+
         {data ? (document.location.replace("/home")): (
-             <form onSubmit= {signupFormHandler}>
+             <form  
+             className="mt-8 space-y-6" 
+             onSubmit= {signupFormHandler}>
               <input
-                className="form-input"
+                className="relative block w-full appearance-none rounded-md rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Email"
                 name="email"
                 type="email"
@@ -53,7 +64,7 @@ const Signup = () => {
                 onChange={handleChange}/>
 
               <input
-                className="form-input"
+                className="relative block w-full appearance-none rounded-md rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Username"
                 name="username"
                 type="username"
@@ -62,7 +73,7 @@ const Signup = () => {
                 onChange={handleChange}/>
 
               <input
-                className="form-input"
+                className="relative block w-full appearance-none rounded-md rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Password"
                 name="password"
                 type="password"
@@ -70,13 +81,18 @@ const Signup = () => {
                 value= {formState.password}
                 onChange={handleChange}/>
 
-              <button type="submit"> Create account </button>
+              <button 
+              className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit"> Create account </button>
             </form>
         )}
 
         {error && (
-            <div> Account already exists. Please log in or choose another email. </div>
+            <div 
+            className="mt-2 text-center text-sm text-gray-600"> 
+            Account already exists. Please log in or choose another email. </div>
         )}
+        </div>
+        </div>
     </main>
     )}
 
