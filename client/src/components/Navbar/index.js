@@ -8,13 +8,20 @@ const Navbar = () => {
         Auth.logout();
     };
     return (
-        <nav>
-            <Link to="/home"> Home </Link>
+        <nav className="float-right">
+            <div className="">
+            <Link 
+            className="inline-block rounded-lg px-3 py-1.5 text-md leading-6 text-gray-900  ring-gray-900/10 hover:ring-gray-900/20"
+            to="/home"> Home </Link>
     
-            <Link to="/me"> Profile </Link>
+            <Link 
+            className="inline-block rounded-lg px-3 py-1.5 text-md leading-6 text-gray-900  ring-gray-900/10 hover:ring-gray-900/20"
+            to="/me"> Profile </Link>
 
-            <button onClick={logout}> Logout </button> 
-
+            <button 
+            className="inline-block rounded-lg px-3 py-1.5 text-md leading-6 text-gray-900  ring-gray-900/10 hover:ring-gray-900/20"
+            onClick={logout}> Logout </button> 
+            </div>
       </nav>
        ) 
     }

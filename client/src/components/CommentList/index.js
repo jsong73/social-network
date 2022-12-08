@@ -8,13 +8,20 @@ const CommentList = ({ comments = [""] }) => {
 
     return(
         <div>
-            <h1>Comments ({comments.length})</h1>
+        <h1 className="text-md font-semibold tracking-tight text-indigo-600"> Comments ({comments.length})</h1>
         {comments && comments.map((comment) => (
             
-            <div key={comment._id}>
-            {comment.username} commented {""} on {comment.createdAt}
-            <p> {comment.commentText} </p>
-            </div>
+        <div
+        key={comment._id}>
+        <div className="truncate italic text-md text-gray-700">
+        {comment.username} commented {""} on {comment.createdAt}
+        </div>
+   
+
+        <p className="text-md text-gray-700"> {comment.commentText} </p>
+
+        <br></br>
+        </div>
         ))}
         
         </div>

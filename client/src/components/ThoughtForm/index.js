@@ -50,27 +50,38 @@ const ThoughtForm = () => {
     };
 
     return(
-    <div>
-        <h1> Welcome {Auth.getProfile().data.username}, </h1>
+    <div className="min-h-full items-center justify-center py-12 px-6 sm:px-6 lg:px-8">
+    <div className="bg-gray-50 border-solid border-1 shadow-md rounded-md px-8 pt-6 pb-8 mb-4">
+        <h1 className ="text-4xl tracking-tight text-indigo-600"> Welcome {Auth.getProfile().data.username}, </h1>
      
    
-            <form onSubmit={thoughtFormHandler}>
-                <textarea
-                    name="thoughtText"
-                    placeholder="Whats on your mind?"
-                    value={thoughtText}
-                    onChange={handleChange}></textarea>
+            <form 
+                className="mt-8 space-y-6"  
+                onSubmit={thoughtFormHandler}>
+            <textarea
+                className="relative block w-full appearance-none rounded-md rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none sm:text-sm"
+                name="thoughtText"
+                placeholder="Whats on your mind?"
+                value={thoughtText}
+                onChange={handleChange}></textarea>
             
-             <button type="submit"> Submit </button>
+            <div class="flex justify-between">
+                
+            <div className="mt-2 text-right text-sm text-gray-600">
+            <p className={`${characterCount === 280 || error ? 'text-danger' : ''}`}>
+            Character Count: {characterCount}/280
+            </p>
+            </div>
+            
+             <button 
+             className="float-right rounded-md border border-transparent bg-indigo-600 py-2 px-6 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit"> Publish </button>
+             </div>
              </form>
 
-           <p className={`${characterCount === 280 || error ? 'text-danger' : ''}`}>
-            Character Count: {characterCount}/280
-          </p>
           
-
     </div>
-   
+ 
+   </div>
 )
 }
 

@@ -14,7 +14,7 @@ const Home = () => {
       <main>
         <Navbar />
      
-        <div style={{border: "1px solid black"}}>
+        <div>
         <ThoughtForm />
         </div>
         <div>
@@ -26,8 +26,7 @@ const Home = () => {
         thoughts= {thoughts}/>
          )}
         </div>
-      
-    
+  
       </main>
       
     );
