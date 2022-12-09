@@ -49,7 +49,7 @@ const CommentForm = ({ thoughtId }) => {
                 value={commentText}
                 onChange={handleChange}></textarea>
 
-                <div class="flex justify-between">
+                <div className="flex justify-between">
                 <div className="mt-2 text-right text-sm text-gray-600">
                 <p className={`${characterCount === 280 || error ? 'text-danger' : ''}`}>
                 Character Count: {characterCount}/280

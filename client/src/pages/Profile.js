@@ -19,7 +19,7 @@ const Profile = () => {
     }
 
     if (loading) {
-        return "loading..."
+        return <div className="text-lg text-gray-700"> loading... </div>
     }
 
     return(

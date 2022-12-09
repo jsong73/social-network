@@ -19,7 +19,7 @@ const Home = () => {
         </div>
         <div>
           {loading ? (
-            <div>Loading...</div>
+           <div className="text-lg text-gray-700"> loading... </div>
           ) : (
         <ThoughtList 
         title= "Discussions"

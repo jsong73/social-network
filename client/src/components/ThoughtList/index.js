@@ -16,12 +16,12 @@ const ThoughtList = ({
             <br>
             </br>
            
-            {thoughts && thoughts.map((thought) => ( 
-            <div className="bg-gray-50 border-solid border-2 rounded-lg px-7 pt-4 pb-4 mb-3">
+            {thoughts && thoughts.map((thought) => (    
             <div 
+            className="bg-gray-50 border-solid border-2 rounded-lg px-7 pt-4 pb-4 mb-3"
             key= {thought._id}>
                 {showUsername ? (
-                <div className=" truncate italic text-md text-gray-700"> 
+                <div className=" mb-2 truncate italic text-md text-gray-700"> 
                 <img 
                 className="float-left"
                 src={profile}
@@ -35,16 +35,16 @@ const ThoughtList = ({
                 )}
 
                 <div>
-                <p className="tracking-tight text-gray-700">{thought.thoughtText}</p>      
+                <p className="mb-2 tracking-tight text-gray-700">{thought.thoughtText}</p>      
                 </div>
-                <br></br>
+     
                 <Link 
                 className="italic underline text-gray-600 text-sm"
                 to= {`/thoughts/${thought._id}`}> Comments 
                 </Link>
         </div>
          
-             </div>
+     
 
             ))}
           
