@@ -11,15 +11,15 @@ const Navbar = () => {
         <nav className="float-right">
             <div className="">
             <Link 
-            className="inline-block rounded-lg px-3 py-1.5 text-md leading-6 text-gray-900  ring-gray-900/10 hover:ring-gray-900/20"
+            className="inline-block px-3 py-1.5 text-md leading-6 text-gray-900  ring-gray-900/10 hover:ring-gray-900/20"
             to="/home"> Home </Link>
     
             <Link 
-            className="inline-block rounded-lg px-3 py-1.5 text-md leading-6 text-gray-900  ring-gray-900/10 hover:ring-gray-900/20"
+            className="inline-block px-3 py-1.5 text-md leading-6 text-gray-900  ring-gray-900/10 hover:ring-gray-900/20"
             to="/me"> Profile </Link>
 
             <button 
-            className="inline-block rounded-lg px-3 py-1.5 text-md leading-6 text-gray-900  ring-gray-900/10 hover:ring-gray-900/20"
+            className="inline-block px-3 py-1.5 text-md leading-6 text-gray-900  ring-gray-900/10 hover:ring-gray-900/20"
             onClick={logout}> Logout </button> 
             </div>
       </nav>

@@ -30,7 +30,7 @@ const Profile = () => {
          <div className="min-h-full px-4 sm:px-6 lg:px-8 text-gray-700 ">
         
             <div className="bg-gray-50 border-solid border-1 shadow-md rounded-md px-10 pt-6 pb-8 mb-6 ">
-           <h1 className="text-4xl tracking-tight text-indigo-600"> Viewing {userParam ? `${user.username}'s` : "my"} profile</h1>
+           <h1 className="text-xl tracking-tight text-indigo-600"> Viewing {userParam ? `${user.username}'s` : "my"} profile</h1>
             <br></br>
            
             <h1 className="font-semibold underline underline-offset-8 leading-10"> Account information </h1>

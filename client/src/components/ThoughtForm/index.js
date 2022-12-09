@@ -52,7 +52,7 @@ const ThoughtForm = () => {
     return(
     <div className="min-h-full items-center justify-center py-12 px-6 sm:px-6 lg:px-8">
     <div className="bg-gray-50 border-solid border-1 shadow-md rounded-md px-8 pt-6 pb-8 mb-4">
-        <h1 className ="text-4xl tracking-tight text-indigo-600"> Welcome {Auth.getProfile().data.username}, </h1>
+        <h1 className ="text-xl tracking-tight text-indigo-600"> Welcome {Auth.getProfile().data.username}, </h1>
      
    
             <form 
