@@ -23,6 +23,9 @@ export const QUERY_THOUGHTS = gql`
             thoughtText
             username
             createdAt
+            comments{
+                commentText
+            }
         }
     }
 `;
