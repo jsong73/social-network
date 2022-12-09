@@ -7,7 +7,7 @@ const ThoughtList = ({
     showUsername = true,
 }) => {
     if (!thoughts.length) {
-        return "No thoughts to view as of yet!"
+        return <div className="text-sm italic text-gray-700 text-center"> No thoughts to view as of yet! </div>
     }  
     return(
     <div className="min-h-full px-4 sm:px-6 lg:px-8">

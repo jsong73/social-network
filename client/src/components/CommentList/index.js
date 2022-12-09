@@ -2,7 +2,7 @@ import React from "react";
 
 const CommentList = ({ comments = [""] }) => {
     if(!comments.length) {
-        return "No comments to view as of yet!"
+        return <div className="text-sm italic text-gray-700">No comments to view as of yet!</div>
     }
     console.log(comments)
 
