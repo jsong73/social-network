@@ -1,14 +1,19 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import profile from "../../images/profile.png";
+import CommentList from "../CommentList";
 
 const ThoughtList = ({
     thoughts,
     showUsername = true,
+    comments = [""]
 }) => {
     if (!thoughts.length) {
         return <div className="text-sm italic text-gray-700 text-center"> No thoughts to view as of yet! </div>;
     }
+    if(!comments.length) {
+        return <div className="text-sm italic text-gray-700">No comments to view as of yet!</div>;
+    };
     console.log(thoughts)
     return(
     <div className="min-h-full px-4 sm:px-6 lg:px-8">
@@ -40,8 +45,8 @@ const ThoughtList = ({
                 </div>
      
                 <Link 
-                className="text- font-medium underline tracking-tight text-indigo-600"
-                to= {`/thoughts/${thought._id}`}> Comments ({thought.comments.length})
+                className="text-sm font-medium underline tracking-tight text-indigo-600"
+                to= {`/thoughts/${thought._id}`}> Comments {thought.comments.length}
                 </Link>
         </div>
             ))}

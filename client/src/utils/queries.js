@@ -24,7 +24,10 @@ export const QUERY_THOUGHTS = gql`
             username
             createdAt
             comments{
+                _id
                 commentText
+                username
+                createdAt
             }
         }
     }
