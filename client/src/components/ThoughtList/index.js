@@ -1,14 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import profile from "../../images/profile.png"
+import profile from "../../images/profile.png";
 
 const ThoughtList = ({
     thoughts,
     showUsername = true,
 }) => {
     if (!thoughts.length) {
-        return <div className="text-sm italic text-gray-700 text-center"> No thoughts to view as of yet! </div>
-    }  
+        return <div className="text-sm italic text-gray-700 text-center"> No thoughts to view as of yet! </div>;
+    }
     return(
     <div className="min-h-full px-4 sm:px-6 lg:px-8">
         <div className="bg-gray-50 border-solid border-1 shadow-md rounded-md px-8 pt-6 pb-8 mb-4">
@@ -43,15 +43,11 @@ const ThoughtList = ({
                 to= {`/thoughts/${thought._id}`}> Comments 
                 </Link>
         </div>
-         
-     
-
             ))}
           
         </div>
-    </div>
-        
-    )
-}
+    </div>   
+    );
+};
 
 export default ThoughtList;

@@ -26,11 +26,11 @@ const Signup = () => {
         event.preventDefault();
         try{
             const { data } = await addUser({
-                variables: {...formState}
+                variables: {...formState},
             });
             Auth.login(data.addUser.token);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
         setFormState({
             email:"",
@@ -94,7 +94,7 @@ const Signup = () => {
         </div>
         </div>
     </main>
-    )}
+    )};
 
 
     export default Signup;

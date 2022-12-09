@@ -21,7 +21,6 @@ const typeDefs = gql`
     username: String
     createdAt: String
   }
-
   type Auth {
     token: ID!
     user: User

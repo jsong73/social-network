@@ -19,9 +19,8 @@ const Profile = () => {
     }
 
     if (loading) {
-        return <div className="text-lg text-gray-700"> loading... </div>
+        return <div className="text-lg text-gray-700"> loading... </div>;
     }
-
     return(
         <div>
         <Navbar />
@@ -42,18 +41,15 @@ const Profile = () => {
             </div>
             </div>
             
-            
            <ThoughtList
             thoughts={user.thoughts}
             showTitle={true}
             showUsername={true}
           />
           
-   
-
         </div>
         </div>
-    )
-}
+    );
+};
 
 export default Profile;

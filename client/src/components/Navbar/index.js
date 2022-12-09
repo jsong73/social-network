@@ -23,7 +23,7 @@ const Navbar = () => {
             onClick={logout}> Logout </button> 
             </div>
       </nav>
-       ) 
-    }
+       );
+    };
 
 export default Navbar;

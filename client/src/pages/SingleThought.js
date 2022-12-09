@@ -15,7 +15,7 @@ const SingleThought = () => {
 
     const thought = data?.thought || {};
     if (loading) {
-        return <div className="text-lg text-gray-700"> loading... </div>
+        return <div className="text-lg text-gray-700"> loading... </div>;
     }
     return(
         <main>
@@ -44,7 +44,7 @@ const SingleThought = () => {
             </div>
             </div>
         </main>
-    )
-}
+    );
+};
 
 export default SingleThought;

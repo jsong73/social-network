@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_THOUGHT } from "../../utils/mutations"
-import  { QUERY_THOUGHTS} from "../../utils/queries"
+import { ADD_THOUGHT } from "../../utils/mutations";
+import  { QUERY_THOUGHTS} from "../../utils/queries";
 import Auth from "../../utils/auth";
 
 const ThoughtForm = () => {
@@ -30,14 +30,14 @@ const ThoughtForm = () => {
             variables: {
               thoughtText,
               _id: Auth.getProfile().data.username,
-            },
+            }
           });
           console.log(data)
           setThoughtText("");
-          setCharacterCount("0")
+          setCharacterCount("0");
         } catch (error) {
           console.error(error);
-        }
+        };
     };
     
 
@@ -83,7 +83,7 @@ const ThoughtForm = () => {
     </div>
  
    </div>
-)
-}
+);
+};
 
 export default ThoughtForm;

@@ -84,7 +84,7 @@ const Login = (props) => {
          </div>
         </div>
         </main>
-          )}
+          )};
 
 
 
