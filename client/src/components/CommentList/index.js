@@ -16,7 +16,6 @@ const CommentList = ({ comments = [""] }) => {
         <div className="truncate italic text-md text-gray-700">
         {comment.username} commented {""} on {comment.createdAt}
         </div>
-   
 
         <p className="text-md text-gray-700"> {comment.commentText} </p>
 

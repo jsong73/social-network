@@ -15,7 +15,6 @@ const ThoughtList = ({
             <h1 className="text-4xl tracking-tight text-indigo-600"> Discussions  </h1>
             <br>
             </br>
-
            
             {thoughts && thoughts.map((thought) => ( 
             <div className="bg-gray-50 border-solid border-2 rounded-lg px-7 pt-4 pb-4 mb-3">
@@ -41,7 +40,7 @@ const ThoughtList = ({
                 
                 <Link 
                 className="italic text-gray-600 text-sm"
-                to= {`/thoughts/${thought._id}`}> Comments
+                to= {`/thoughts/${thought._id}`}> Comments 
                 </Link>
         </div>
          
