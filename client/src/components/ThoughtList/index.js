@@ -1,27 +1,25 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import profile from "../../images/profile.png";
-import CommentList from "../CommentList";
 
 const ThoughtList = ({
     thoughts,
     showUsername = true,
-    comments = [""]
 }) => {
     if (!thoughts.length) {
         return <div className="text-sm italic text-gray-700 text-center"> No thoughts to view as of yet! </div>;
     }
-    if(!comments.length) {
-        return <div className="text-sm italic text-gray-700">No comments to view as of yet!</div>;
-    };
-    console.log(thoughts)
+    // if (!comments.length) {
+    //     return <div className="text-sm italic text-gray-700 text-center"> No comments to view as of yet! </div>;
+    // }
+
+
     return(
     <div className="min-h-full px-4 sm:px-6 lg:px-8">
         <div className="bg-gray-50 border-solid border-1 shadow-md rounded-md px-8 pt-6 pb-8 mb-4">
-            <h1 className="text-xl tracking-tight text-indigo-600"> Discussions  </h1>
+            <h1 className="text-2xl tracking-tight text-gray-900"> Discussions  </h1>
             <br>
-            </br>
-        
+            </br>   
             {thoughts && thoughts.map((thought) => (    
             <div 
             className="bg-gray-50 border-solid border-2 rounded-lg px-7 pt-4 pb-4 mb-3"
@@ -46,8 +44,10 @@ const ThoughtList = ({
      
                 <Link 
                 className="text-sm font-medium underline tracking-tight text-indigo-600"
-                to= {`/thoughts/${thought._id}`}> Comments {thought.comments.length}
+                to= {`/thoughts/${thought._id}`}> Comments 
                 </Link>
+
+          
         </div>
             ))}
         </div>

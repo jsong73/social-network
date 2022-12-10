@@ -4,7 +4,6 @@ import { useQuery} from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries"
 import ThoughtList from "../components/ThoughtList";
 import Navbar from "../components/Navbar"
-
 import Auth from "../utils/auth"
 
 const Profile = () => {
@@ -17,10 +16,10 @@ const Profile = () => {
     if(Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return  window.location.assign("/me");
     }
-
     if (loading) {
         return <div className="text-lg text-gray-700"> loading... </div>;
     }
+
     return(
         <div>
         <Navbar />
@@ -43,10 +42,9 @@ const Profile = () => {
             
            <ThoughtList
             thoughts={user.thoughts}
-            showTitle={true}
             showUsername={true}
           />
-          
+
         </div>
         </div>
     );

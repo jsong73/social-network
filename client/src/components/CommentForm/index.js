@@ -37,10 +37,9 @@ const CommentForm = ({ thoughtId }) => {
         <div className="min-h-full items-center justify-center py-12 px-6 sm:px-6 lg:px-8">
             <form 
             onSubmit={commentFormHandler}>
-            <br>
-            </br>
+            
               <textarea
-                className="mb-8 relative block w-full appearance-none rounded-md rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none sm:text-sm"
+                className="mb-6 relative block w-full appearance-none rounded-md rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none sm:text-sm"
                 name="commentText"
                 placeholder="Write a comment..."
                 value={commentText}
