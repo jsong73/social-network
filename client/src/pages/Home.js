@@ -26,7 +26,7 @@ const Home = () => {
         thoughts= {thoughts}/>
          )}
         </div>
-  
+
       </main>
       
     );

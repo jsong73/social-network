@@ -51,7 +51,6 @@ const resolvers = {
           thoughtText,
           username: context.user.username,
         });
-        console.log(thought);
         await User.findOneAndUpdate(
           { _id: context.user._id },      
           { $push: { thoughts: thought._id } },

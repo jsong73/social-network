@@ -1,6 +1,7 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import profile from "../../images/profile.png";
+import DeleteButton from "../DeleteButton"
 
 const ThoughtList = ({
     thoughts,
@@ -9,6 +10,7 @@ const ThoughtList = ({
     if (!thoughts.length) {
         return <div className="text-sm italic text-gray-700 text-center"> No thoughts to view as of yet! </div>;
     }
+
     // if (!comments.length) {
     //     return <div className="text-sm italic text-gray-700 text-center"> No comments to view as of yet! </div>;
     // }
@@ -41,13 +43,14 @@ const ThoughtList = ({
                 <div>
                 <p className="mb-2 tracking-tight text-gray-700">{thought.thoughtText}</p>      
                 </div>
-     
+
                 <Link 
                 className="text-sm font-medium underline tracking-tight text-indigo-600"
                 to= {`/thoughts/${thought._id}`}> Comments 
                 </Link>
 
-          
+                    <DeleteButton />
+
         </div>
             ))}
         </div>
