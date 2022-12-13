@@ -1,41 +1,37 @@
 import React from "react";
 import { REMOVE_THOUGHT } from "../../utils/mutations";
-import { QUERY_THOUGHTS } from "../../utils/queries";
 import { useMutation } from "@apollo/client";
-import Auth from "../../utils/auth"
+import { QUERY_ME } from "../../utils/queries";
 
-const DeleteButton = () => {
-    const [removeThought] = useMutation(REMOVE_THOUGHT, {
-        update(cache, {data: { removeThought }}){
+const DeleteButton = ({ thoughtId, isLoggedInUser = false }) => {
+    const [ removeThought ] = useMutation(REMOVE_THOUGHT, {
+        update(cache, {data: {removeThought}}){
             try{
-                const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
                 cache.writeQuery({
-                    query: QUERY_THOUGHTS,
-                    data:  { thoughts: [removeThought,...thoughts]},
+                    query: QUERY_ME,
+                    data: { me: removeThought },
                 });
             } catch (error){
-            console.log(error);
+            console.log(error)
             }
-        }
+        },
     });
 
-    const removeThoughtHandler = async () => {
+    const removeThoughtHandler = async (thoughtId) => {
         try{
-            const { data } = await removeThought({
-                variables: {
-                    _id: Auth.getProfile().data.username, 
-            }
-        });
+            const {data}= await removeThought({
+                variables: { thoughtId },
+            });
         console.log(data)
-        } catch(error){
+        } catch (error) {
         console.log(error)
         }
-    }
+    };
 
     return (
         <div>
             <button
-            onClick={removeThoughtHandler}>
+            onClick={() => removeThoughtHandler(thoughtId)}>
                 DELETE
             </button>
         </div>

@@ -1,20 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import profile from "../../images/profile.png";
-import DeleteButton from "../DeleteButton"
+import { QUERY_ME } from "../../utils/queries";
+import { useMutation } from '@apollo/client';
+import { REMOVE_THOUGHT } from "../../utils/mutations";
 
 const ThoughtList = ({
     thoughts,
     showUsername = true,
+    isLoggedInUser = false
 }) => {
+    const [removeThought] = useMutation(REMOVE_THOUGHT, {
+        update(cache, { data: { removeThought }}) {
+            try{
+                cache.writeQuery({
+                    query: QUERY_ME,
+                    data: { me: removeThought },
+                });
+            } catch (error){
+            console.log(error)
+            }
+        },
+    });
+
+    const removeThoughtHandler = async ( thoughts ) => {
+        try{
+            const { data} = await removeThought({
+                variables: {thoughts},
+            });
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+        }
+    };
     if (!thoughts.length) {
         return <div className="text-sm italic text-gray-700 text-center"> No thoughts to view as of yet! </div>;
     }
-
-    // if (!comments.length) {
-    //     return <div className="text-sm italic text-gray-700 text-center"> No comments to view as of yet! </div>;
-    // }
-
 
     return(
     <div className="min-h-full px-4 sm:px-6 lg:px-8">
@@ -44,12 +65,21 @@ const ThoughtList = ({
                 <p className="mb-2 tracking-tight text-gray-700">{thought.thoughtText}</p>      
                 </div>
 
+                {isLoggedInUser && (
+                <button
+                onClick={() => removeThoughtHandler (thought)}>
+                DELETE
+                </button>
+                )}
+
                 <Link 
                 className="text-sm font-medium underline tracking-tight text-indigo-600"
                 to= {`/thoughts/${thought._id}`}> Comments 
                 </Link>
+                
 
-                    <DeleteButton />
+
+
 
         </div>
             ))}
