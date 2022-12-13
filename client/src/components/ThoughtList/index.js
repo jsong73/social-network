@@ -14,7 +14,7 @@ const ThoughtList = ({
     const [removeThought] = useMutation(REMOVE_THOUGHT, {
         update(cache, { data: { removeThought }}) {
             try{
-                cache.writeQuery({
+                cache.readQuery({
                     query: QUERY_ME,
                     data: { me: removeThought },
                 });
