@@ -4,6 +4,7 @@ import profile from "../../images/profile.png";
 import { QUERY_ME } from "../../utils/queries";
 import { useMutation } from '@apollo/client';
 import { REMOVE_THOUGHT } from "../../utils/mutations";
+import trashcan from "../../images/trashcan.png"
 
 const ThoughtList = ({
     thoughts,
@@ -23,10 +24,10 @@ const ThoughtList = ({
         },
     });
 
-    const removeThoughtHandler = async ( thoughts ) => {
+    const removeThoughtHandler = async ( thoughtId ) => {
         try{
-            const { data} = await removeThought({
-                variables: {thoughts},
+            const { data } = await removeThought({
+                variables: {thoughtId},
             });
             console.log(data)
         } catch (error) {
@@ -65,20 +66,26 @@ const ThoughtList = ({
                 <p className="mb-2 tracking-tight text-gray-700">{thought.thoughtText}</p>      
                 </div>
 
-                {isLoggedInUser && (
-                <button
-                onClick={() => removeThoughtHandler (thought)}>
-                DELETE
-                </button>
-                )}
-
                 <Link 
                 className="text-sm font-medium underline tracking-tight text-indigo-600"
                 to= {`/thoughts/${thought._id}`}> Comments 
                 </Link>
-                
+              
+                {isLoggedInUser && (
+                <button
+                onClick={() => removeThoughtHandler (thought._id)}
+                className="float-right"
+                passive= "true">
+  
+                <img
+                src={trashcan}
+                className="mb-10 "
+                alt="trashcan" 
+                width="25px">
+                </img>
 
-
+                </button>
+                )}
 
 
         </div>

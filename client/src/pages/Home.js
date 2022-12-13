@@ -23,7 +23,9 @@ const Home = () => {
           ) : (
         <ThoughtList 
         title= "Discussions"
-        thoughts= {thoughts}/>
+        thoughts= {thoughts}
+        />
+
          )}
         </div>
 

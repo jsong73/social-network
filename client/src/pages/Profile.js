@@ -43,6 +43,7 @@ const Profile = () => {
            <ThoughtList
             thoughts={user.thoughts}
             showUsername={true}
+            isLoggedInUser={!userParam && true}
           />
 
         </div>
