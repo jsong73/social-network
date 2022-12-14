@@ -24,7 +24,8 @@ const ThoughtList = ({
         },
     });
 
-    const removeThoughtHandler = async ( thoughtId ) => {
+    const removeThoughtHandler = async ( thoughtId  ) => {
+
         try{
             const { data } = await removeThought({
                 variables: {thoughtId},
