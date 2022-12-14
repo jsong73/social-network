@@ -11,7 +11,7 @@ const Profile = () => {
     const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
         variables: {username: userParam },
     });
-    const user = data?.me || data?.user || {};
+    const user = data?.me || data?.user || [];
     //if logged in user matches username 
     if(Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return  window.location.assign("/me");
@@ -43,7 +43,6 @@ const Profile = () => {
            <ThoughtList
             showUsername={true}
             thoughts={user.thoughts}
-            isLoggedInUser={!userParam && true}
           />
 
         </div>

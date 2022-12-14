@@ -7,9 +7,10 @@ import ThoughtList from "../components/ThoughtList"
 
 
 const Home = () => {
-    const {loading, data} = useQuery(QUERY_THOUGHTS);
-    const thoughts = data?.thoughts || [];
 
+    const {loading, data} = useQuery(QUERY_THOUGHTS);   
+    const thoughts = data?.thoughts || [];
+  
     return (
       <main>
         <Navbar />
@@ -25,8 +26,9 @@ const Home = () => {
         title= "Discussions"
         thoughts= {thoughts}
         />
+        )}
 
-         )}
+       
         </div>
 
       </main>

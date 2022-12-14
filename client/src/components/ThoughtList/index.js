@@ -1,40 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import profile from "../../images/profile.png";
-import { QUERY_ME } from "../../utils/queries";
-import { useMutation } from '@apollo/client';
-import { REMOVE_THOUGHT } from "../../utils/mutations";
-import trashcan from "../../images/trashcan.png"
+import DeleteButton from "../DeleteButton";
+import Auth from "../../utils/auth"
 
 const ThoughtList = ({
     thoughts,
     showUsername = true,
-    isLoggedInUser = false
 }) => {
-    const [removeThought] = useMutation(REMOVE_THOUGHT, {
-        update(cache, { data: { removeThought }}) {
-            try{
-                cache.readQuery({
-                    query: QUERY_ME,
-                    data: { me: removeThought },
-                });
-            } catch (error){
-            console.log(error)
-            }
-        },
-    });
 
-    const removeThoughtHandler = async ( thoughtId  ) => {
-
-        try{
-            const { data } = await removeThought({
-                variables: {thoughtId},
-            });
-            console.log(data)
-        } catch (error) {
-            console.log(error)
-        }
-    };
     if (!thoughts.length) {
         return <div className="text-sm italic text-gray-700 text-center"> No thoughts to view as of yet! </div>;
     }
@@ -71,22 +45,10 @@ const ThoughtList = ({
                 className="text-sm font-medium underline tracking-tight text-indigo-600"
                 to= {`/thoughts/${thought._id}`}> Comments 
                 </Link>
-              
-                {isLoggedInUser && (
-                <button
-                onClick={() => removeThoughtHandler (thought._id)}
-                className="float-right">
-  
-                <img
-                src={trashcan}
-                className="mb-10 "
-                alt="trashcan" 
-                width="22px">
-                </img>
 
-                </button>
-                )}
-
+        <DeleteButton 
+        isLoggedInUser={Auth.getProfile().data.username === thought.username && true}
+        thoughtId={thought._id}/>
 
         </div>
             ))}
