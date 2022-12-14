@@ -74,14 +74,13 @@ const ThoughtList = ({
                 {isLoggedInUser && (
                 <button
                 onClick={() => removeThoughtHandler (thought._id)}
-                className="float-right"
-                passive= "true">
+                className="float-right">
   
                 <img
                 src={trashcan}
                 className="mb-10 "
                 alt="trashcan" 
-                width="25px">
+                width="22px">
                 </img>
 
                 </button>
