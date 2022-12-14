@@ -5,11 +5,11 @@ import { REMOVE_THOUGHT } from "../../utils/mutations";
 import trashcan from "../../images/trashcan.png"
 
 
-const DeleteButton = ({ 
-    thoughtId,  
+const DeleteThought = ({ 
+    thoughtId, 
     isLoggedInUser = false }) => {
 
-    const [ removeThought ] = useMutation(REMOVE_THOUGHT, {
+    const [ removeThought ] = useMutation(REMOVE_THOUGHT,{
         update(cache, { data: { removeThought } }) {
             try{
                 cache.readQuery({
@@ -33,10 +33,10 @@ const DeleteButton = ({
         }
     };
 
+
     return(
         
-        <div className="float-right"
-        >
+        <div className="float-right">
 
             {isLoggedInUser && (
                 <button
@@ -50,12 +50,12 @@ const DeleteButton = ({
                 </img>
 
                 </button>
-                
                 )}
+
                 </div>
             
     )
 
 }
 
-    export default DeleteButton;
+    export default DeleteThought;

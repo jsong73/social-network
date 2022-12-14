@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import profile from "../../images/profile.png";
-import DeleteButton from "../DeleteButton";
+import DeleteThought from "../DeleteThought";
 import Auth from "../../utils/auth"
 
 const ThoughtList = ({
@@ -46,7 +46,7 @@ const ThoughtList = ({
                 to= {`/thoughts/${thought._id}`}> Comments 
                 </Link>
 
-        <DeleteButton 
+        <DeleteThought 
         isLoggedInUser={Auth.getProfile().data.username === thought.username && true}
         thoughtId={thought._id}/>
 
