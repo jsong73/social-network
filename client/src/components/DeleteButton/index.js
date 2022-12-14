@@ -34,26 +34,25 @@ const DeleteButton = ({
     };
 
     return(
-        <div>
+        
+        <div className="float-right">
 
             {isLoggedInUser && (
                 <button
                 onClick={() => removeThoughtHandler (thoughtId)}
-                className="">
+                className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover: duration-300">
   
-
                 <img
                 src={trashcan}
                 alt="trashcan" 
-                width="22px">
+                width="25px">
                 </img>
 
                 </button>
                 
                 )}
                 </div>
-        
-
+            
     )
 
 }

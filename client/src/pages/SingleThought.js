@@ -6,7 +6,8 @@ import CommentForm from "../components/CommentForm"
 import Navbar from "../components/Navbar"
 import { QUERY_SINGLE_THOUGHT } from "../utils/queries";
 import profile from "../images/profile.png"
-
+import DeleteButton from "../components/DeleteButton";
+import Auth from "../utils/auth";
 
 const SingleThought = () => {
     const {thoughtId} = useParams();
@@ -41,6 +42,12 @@ const SingleThought = () => {
     
             <div>
                 <CommentForm thoughtId={thought._id} />
+            </div>
+
+            <div className="mb-7">
+            <DeleteButton 
+            isLoggedInUser={Auth.getProfile().data.username === thought.username && true}
+            thoughtId={thought._id}/>
             </div>
      
             </div>

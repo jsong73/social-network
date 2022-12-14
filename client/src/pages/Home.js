@@ -23,7 +23,6 @@ const Home = () => {
            <div className="text-lg text-gray-700"> loading... </div>
           ) : (
         <ThoughtList 
-        title= "Discussions"
         thoughts= {thoughts}
         />
         )}
