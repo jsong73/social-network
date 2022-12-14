@@ -35,7 +35,8 @@ const DeleteButton = ({
 
     return(
         
-        <div className="float-right">
+        <div className="float-right"
+        >
 
             {isLoggedInUser && (
                 <button

@@ -22,7 +22,7 @@ const SingleThought = () => {
     return(
         <main>
             <Navbar />
-            <div className=" min-h-full items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
+            <div className=" min-h-full items-center justify-center py-16 px-2 sm:px-6 lg:px-8">
             <div className="bg-gray-50 border-solid border-1 shadow-md rounded-md px-8 pt-6 pb-2 mb-4">
             <img 
                 className="float-left"
