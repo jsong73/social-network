@@ -3,11 +3,10 @@ import { QUERY_ME } from "../../utils/queries";
 import { useMutation } from '@apollo/client';
 import { REMOVE_COMMENT } from "../../utils/mutations";
 
-
 const DeleteComment = ({ 
     commentId, 
     isLoggedInUser = false }) => {
-
+    console.log(commentId)
     const [ removeComment ] = useMutation(REMOVE_COMMENT,{
         update(cache, { data: { removeComment } }) {
             try{
@@ -31,16 +30,16 @@ const DeleteComment = ({
             console.log(error)
         }
     };
-
+    
+   
     return(
         
-        <div className="float-right">
-
-
+        <div>
+            
         {isLoggedInUser && (
         <button
         onClick={() => removeCommentHandler (commentId)}>
-                    
+
         Delete comment
          </button>
         )}

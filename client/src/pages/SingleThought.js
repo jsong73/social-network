@@ -6,8 +6,6 @@ import CommentForm from "../components/CommentForm"
 import Navbar from "../components/Navbar"
 import { QUERY_SINGLE_THOUGHT } from "../utils/queries";
 import profile from "../images/profile.png"
-import Auth from "../utils/auth"
-import DeleteComment from "../components/DeleteComment";
 
 
 const SingleThought = () => {
@@ -40,17 +38,10 @@ const SingleThought = () => {
             <div>
                 <CommentList comments={thought.comments} />
             </div>
-    
+
             <div>
                 <CommentForm thoughtId={thought._id} />
             </div>
-
-            <div>
-                <DeleteComment 
-                commentId={thought.comments} 
-                isLoggedInUser={Auth.getProfile().data.username === thought.username && true}/>
-            </div>
-            
 
      
             </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import DeleteComment from "../DeleteComment";
+import Auth from "../../utils/auth"
 
 const CommentList = ({ comments = [""] }) => {
     if(!comments.length) {
@@ -16,6 +18,12 @@ const CommentList = ({ comments = [""] }) => {
         </div>
 
         <p className="text-md text-gray-700"> {comment.commentText} </p>
+
+        <div>
+        <DeleteComment 
+        commentId={comment._id} 
+        isLoggedInUser={Auth.getProfile().data.username === comment.username && true}/>
+        </div>
 
         <br></br>
         </div>
