@@ -4,6 +4,7 @@ import profile from "../../images/profile.png";
 import DeleteThought from "../DeleteThought";
 import Auth from "../../utils/auth"
 
+
 const ThoughtList = ({
     thoughts,
     showUsername = true,
@@ -49,6 +50,7 @@ const ThoughtList = ({
         <DeleteThought 
         isLoggedInUser={Auth.getProfile().data.username === thought.username && true}
         thoughtId={thought._id}/>
+
 
         </div>
             ))}

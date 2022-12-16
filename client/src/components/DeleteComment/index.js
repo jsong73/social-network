@@ -5,8 +5,9 @@ import { REMOVE_COMMENT } from "../../utils/mutations";
 
 const DeleteComment = ({ 
     commentId, 
+    thoughtId,
     isLoggedInUser = false }) => {
-    console.log(commentId)
+
     const [ removeComment ] = useMutation(REMOVE_COMMENT,{
         update(cache, { data: { removeComment } }) {
             try{
@@ -20,10 +21,10 @@ const DeleteComment = ({
         },
     });
 
-    const removeCommentHandler = async ( commentId ) => {
+    const removeCommentHandler = async ( commentId, thoughtId ) => {
         try{
             const { data } = await removeComment({
-                variables: { commentId },
+                variables: { commentId, thoughtId},
             });
             console.log(data)
         } catch (error) {
@@ -38,8 +39,7 @@ const DeleteComment = ({
             
         {isLoggedInUser && (
         <button
-        onClick={() => removeCommentHandler (commentId)}>
-
+        onClick={() => removeCommentHandler (commentId, thoughtId)}>
         Delete comment
          </button>
         )}

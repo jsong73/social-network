@@ -2,10 +2,11 @@ import React from "react";
 import DeleteComment from "../DeleteComment";
 import Auth from "../../utils/auth"
 
-const CommentList = ({ comments = [""] }) => {
+const CommentList = ({ comments = [""]  , thoughtId }) => {
     if(!comments.length) {
         return <div className="text-sm italic text-gray-700">No comments to view as of yet!</div>;
     };
+
     return(
         <div>
         <h1 className="text-md font-semibold tracking-tight text-indigo-600"> Comments ({comments.length})</h1>
@@ -22,6 +23,7 @@ const CommentList = ({ comments = [""] }) => {
         <div>
         <DeleteComment 
         commentId={comment._id} 
+        thoughtId={thoughtId}
         isLoggedInUser={Auth.getProfile().data.username === comment.username && true}/>
         </div>
 

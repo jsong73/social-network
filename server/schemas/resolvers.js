@@ -82,15 +82,12 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in!");
     },
-    removeComment: async (parent, { thoughtId, commentId, username }, context) => {
+    removeComment: async (parent, { thoughtId, commentId }, context) => {
       if (context.user) {
         return Thought.findOneAndUpdate(
           { _id: thoughtId },
           {
-            $pull: {
-              comments:{ username , _id: commentId}
-            },
-          },
+            $pull: {comments:{ _id: commentId}}},
           { new: true }
         );
       }

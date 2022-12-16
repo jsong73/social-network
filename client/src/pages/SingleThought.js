@@ -36,8 +36,11 @@ const SingleThought = () => {
             <br></br>
             
             <div>
-                <CommentList comments={thought.comments} />
+                <CommentList 
+                comments={thought.comments}
+                thoughtId={thought._id} />
             </div>
+            
 
             <div>
                 <CommentForm thoughtId={thought._id} />
