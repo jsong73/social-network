@@ -39,6 +39,7 @@ const DeleteComment = ({
             
         {isLoggedInUser && (
         <button
+        className="mt-2 text-sm underline tracking-tight text-red-600"
         onClick={() => removeCommentHandler (commentId, thoughtId)}>
         Delete comment
          </button>
