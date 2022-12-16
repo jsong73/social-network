@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import profile from "../../images/profile.png";
 import DeleteThought from "../DeleteThought";
 import Auth from "../../utils/auth"
-import CommentList from "../CommentList";
+
 
 
 const ThoughtList = ({
