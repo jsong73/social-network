@@ -24,7 +24,7 @@ const DeleteComment = ({
     const removeCommentHandler = async ( commentId, thoughtId ) => {
         try{
             const { data } = await removeComment({
-                variables: { commentId, thoughtId},
+                variables: { commentId, thoughtId },
             });
             console.log(data)
         } catch (error) {
