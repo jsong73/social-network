@@ -4,11 +4,8 @@ import profile from "../../images/profile.png";
 import DeleteThought from "../DeleteThought";
 import Auth from "../../utils/auth"
 
-
-
 const ThoughtList = ({
     thoughts,
-    comment,
     showUsername = true,
 }) => {
 

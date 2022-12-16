@@ -52,7 +52,6 @@ const ThoughtForm = () => {
     <div className="bg-gray-50 border-solid border-1 shadow-md rounded-md px-8 pt-6 pb-8 mb-4">
         <h1 className ="text-2xl tracking-tight text-gray-900"> Welcome {Auth.getProfile().data.username}, </h1>
      
-   
             <form 
                 className="mt-8 space-y-6"  
                 onSubmit={thoughtFormHandler}>

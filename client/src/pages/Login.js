@@ -4,7 +4,6 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth"
 import { Link } from "react-router-dom";
 
-
 const Login = (props) => {
     const [formState, setFormState] = useState({ 
         email: "", 
@@ -38,7 +37,7 @@ const Login = (props) => {
         });
    
     }
-
+    
     return(
     <main>
 

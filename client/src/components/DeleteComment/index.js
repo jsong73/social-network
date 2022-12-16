@@ -32,7 +32,6 @@ const DeleteComment = ({
         }
     };
     
-   
     return(
         
         <div>

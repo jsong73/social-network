@@ -21,7 +21,6 @@ const Signup = () => {
             [name]: value,
     });
 };
-
     const signupFormHandler = async (event) => {
         event.preventDefault();
         try{

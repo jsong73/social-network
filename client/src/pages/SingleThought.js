@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar"
 import { QUERY_SINGLE_THOUGHT } from "../utils/queries";
 import profile from "../images/profile.png"
 
-
 const SingleThought = () => {
     const {thoughtId} = useParams();
     const { loading, data } = useQuery(QUERY_SINGLE_THOUGHT, {

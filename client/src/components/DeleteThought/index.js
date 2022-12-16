@@ -33,7 +33,6 @@ const DeleteThought = ({
         }
     };
 
-
     return(
         
         <div className="float-right">
