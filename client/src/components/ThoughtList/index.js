@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import profile from "../../images/profile.png";
 import DeleteThought from "../DeleteThought";
 import Auth from "../../utils/auth"
+import CommentList from "../CommentList";
 
 
 const ThoughtList = ({
     thoughts,
+    comment,
     showUsername = true,
 }) => {
 
@@ -44,7 +46,7 @@ const ThoughtList = ({
 
                 <Link 
                 className="text-sm font-medium underline tracking-tight text-indigo-600"
-                to= {`/thoughts/${thought._id}`}> Comments 
+                to= {`/thoughts/${thought._id}`}> Comments
                 </Link>
 
         <DeleteThought 
