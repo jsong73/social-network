@@ -23,7 +23,7 @@ Back-end: Node.js, Apollo GraphQL Server, Express, MongoDB, Mongoose, JWT token 
 
 ## Testing
 
-If you want to test out this website, you can register with a fake (or real account) and start posting thoughts and comments.  
+If you want to test out this website, you can register with a fake (or real) account and start posting thoughts and comments.  
 
 ![login and create account](https://user-images.githubusercontent.com/111620893/208137548-3d5a2eae-d84f-47d6-81be-d1cdff6d68d9.gif)  
 ![homepage](https://user-images.githubusercontent.com/111620893/208138508-f44ad31d-c841-485a-9865-dab4d54c5a33.gif)  
