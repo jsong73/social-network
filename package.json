@@ -1,7 +1,7 @@
 {
   "name": "social-network",
   "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "Social network thoughts is a simple social media website that allows users to exchange thoughts and comments with other registered users. This was built using the MERNG stack.",
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
@@ -19,7 +19,7 @@
     "url": "https://github.com/jsong73/social-network/issues"
   },
   "homepage": "https://github.com/jsong73/social-network#readme",
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^7.6.0"
   }
 }
