@@ -21,7 +21,7 @@ const ThoughtForm = () => {
             }
         }
     });
-    
+
     const thoughtFormHandler = async (event) => {
         event.preventDefault();
         try {

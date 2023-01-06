@@ -17,7 +17,7 @@ import Signup from "./pages/Signup";
 import SingleThought from "./pages/SingleThought";
 
 const httpLink = createHttpLink({
-  uri: "/graphql"
+  uri: "/graphql",
 });
 
 const authLink = setContext ((_, { headers }) => {
