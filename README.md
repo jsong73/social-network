@@ -29,11 +29,11 @@ If you want to test out this website, you can register with a fake (or real) acc
 ## Log in or create an account  
 ![login and create account](https://user-images.githubusercontent.com/111620893/208137548-3d5a2eae-d84f-47d6-81be-d1cdff6d68d9.gif)  
 
-## Publish a thought  
+## Publish or delete a thought  
 ![homepage](https://user-images.githubusercontent.com/111620893/208138508-f44ad31d-c841-485a-9865-dab4d54c5a33.gif)  
 
 ## View, delete, or leave comments   
 ![comments](https://user-images.githubusercontent.com/111620893/208138797-6e6aaa1d-5d4f-48ca-8483-e19db6dc3da8.gif)  
 
-## View your account information and view/delete your own posted thoughts  
+## View your account information and posted thoughts  
 ![delete thought](https://user-images.githubusercontent.com/111620893/208139251-dcc9a4b5-a2db-4a0a-bc92-4167e5d43c37.gif)  
