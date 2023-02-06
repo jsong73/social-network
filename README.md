@@ -24,7 +24,7 @@ Back-end: Node.js, Apollo GraphQL Server, Express, MongoDB, Mongoose, JWT token 
 •	As a user, I want to be able to log out of my account.  
 
 ## Testing
-If you want to test out this website, you can register with a fake (or real) account and start posting thoughts and comments.  
+If you want to test out this website, you can register and start posting thoughts and comments.  
 
 ## Log in or create an account  
 ![login and create account](https://user-images.githubusercontent.com/111620893/208137548-3d5a2eae-d84f-47d6-81be-d1cdff6d68d9.gif)  
