@@ -1,7 +1,5 @@
 # social-network-thoughts  
 
-https://social-network-thoughts.herokuapp.com/  
-
 Social network thoughts is a simple social media website that allows users to exchange thoughts and comments with other registered users. This was built using the MERNG stack.
 
 ## Technology 
